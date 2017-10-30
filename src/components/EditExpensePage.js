@@ -5,9 +5,11 @@ import ExpenseForm from './ExpenseForm'
 
 //Editing the expense with id of {props.match.params.id}
 const EditExpensePage = (props) => {
-  console.log('props Higher ', props )
+  console.log('props Higher::: ', props )
   return (
     <div>
+      id:
+      {props.match.params.id}
       <ExpenseForm
         onsubmit={(expense) => {
           console.log('updated', expense)
@@ -19,11 +21,9 @@ const EditExpensePage = (props) => {
 
 const mapStateToProps = (state, props) => {
   // console.log('props ', props )
-  // console.log('state ', state )
+  console.log('state ', state )
   return {
-    expense: state.expenses.find((expense) => {
-      return expense.id === props.match.params.id
-    })
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id)
   }
 }
 
