@@ -11,6 +11,7 @@ const EditExpensePage = (props) => {
       id:
       {props.match.params.id}
       <ExpenseForm
+        expense={props.expense} // magic line that will update
         onsubmit={(expense) => {
           console.log('updated', expense)
         }}
@@ -20,11 +21,17 @@ const EditExpensePage = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
+  return {
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+  };
+};
+
+/*const mapStateToProps = (state, props) => {
   // console.log('props ', props )
   console.log('state ', state )
   return {
     expense: state.expenses.find((expense) => expense.id === props.match.params.id)
   }
-}
+}*/
 
 export default connect(mapStateToProps)(EditExpensePage)
