@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ExpenseForm from './ExpenseForm'
+import { editExpense, removeExpense } from '../actions/expenses'
 
 
 //Editing the expense with id of {props.match.params.id}
@@ -12,10 +13,17 @@ const EditExpensePage = (props) => {
       {props.match.params.id}
       <ExpenseForm
         expense={props.expense} // magic line that will update
-        onsubmit={(expense) => {
-          console.log('updated', expense)
+        onSubmit={(expense) => {
+          props.dispatch(editExpense(props.expense.id, expense))
+          props.history.push('/')
         }}
       />
+      <button
+        onClick={() => {
+          props.dispatch(removeExpense({ id: props.expense.id } ))
+          props.history.push('/')
+        }}
+      >Remove </button>
     </div>
   )
 }
