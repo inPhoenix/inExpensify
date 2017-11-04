@@ -5,7 +5,7 @@
     inExpensify
 
 Click on the link to access the Live Demo:
-[https://inphoenix.github.io/inExpensify/](https://inphoenix.github.io/inExpensify/)
+[https://inexpensify.herokuapp.com/](https://inexpensify.herokuapp.com/)
 
 
 ---
@@ -16,3 +16,8 @@ Click on the link to access the Live Demo:
 ## The stack
 - [x] React
 - [x] Redux
+
+---
+
+
+---
