@@ -7,12 +7,6 @@
 Click on the link to access the Live Demo:
 [https://inexpensify.herokuapp.com/](https://inexpensify.herokuapp.com/)
 
-
----
-    App deployed using react-create-app
-    API: api.imgflip.com
----
-
 ## The stack
 - [x] React
 - [x] Redux
