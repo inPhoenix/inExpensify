@@ -18,6 +18,7 @@ Click on the link to access the Live Demo:
 - [x] Redux
 
 ---
-
-
+    yarn run dev-server
+    git push heroku master
+    heroku logs
 ---
