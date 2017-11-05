@@ -4,3 +4,16 @@
 .is-active {
   font-weight: bold;
 }
+
+
+// temp style
+.temp {
+  padding: 10px;
+  text-decoration: none;
+  &:hover {
+    background: ghostwhite;
+  }
+  &:focus {
+    background: yellow;
+  }
+}
