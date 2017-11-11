@@ -41,3 +41,32 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+// ********* FIREBASE Actions **********
+
+// SET_EXPENSES
+export const setExpenses = (expenses) => ({
+  type: 'SET_EXPENSES',
+  expenses
+})
+
+// fetch all expenses data once
+// parse that data into arra
+// dispatch SET_EXPENSES
+
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return database.ref('expenses').once('value').then((snapshot) => {
+      const expenses = []
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        })
+      })
+      dispatch(setExpenses(expenses))
+    })
+  }
+}
+
+
