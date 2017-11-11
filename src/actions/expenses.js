@@ -50,6 +50,15 @@ export const editExpense = (id, updates) => ({
   updates
 });
 
+export const startEditExpense = (id, updates) => {
+  return(dispatch) => {
+    // dont forget the return
+    return database.ref(`expenses/${id}`).update(updates).then(() => {
+      dispatch(editExpense(id, updates))
+    })
+  }
+}
+
 // ********* FIREBASE Actions **********
 
 // SET_EXPENSES
