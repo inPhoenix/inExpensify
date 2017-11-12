@@ -11,6 +11,7 @@ import {
 //import { setTextFilter } from './actions/filters'
 import { login, logout } from './actions/auth'
 import getVisibleExpenses from './selectors/expenses'
+import LoadingPage from './components/LoadingPage'
 import './playground/promises.js'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -24,8 +25,6 @@ store.dispatch(addExpense({ description: 'Rent', amount: 134000  }));
 
 const state = store.getState()
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
-// console.log(visibleExpenses)
-//store.dispatch(getVisibleExpenses({ description: 'Water bill' }))
 
 const jsx = (
   <Provider store={store}>
@@ -41,9 +40,7 @@ const renderApp = () => {
   }
 }
 
-ReactDOM.render(<p>Loading...</p>,document.getElementById('app'))
-
-
+ReactDOM.render(<LoadingPage />,document.getElementById('app'))
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
