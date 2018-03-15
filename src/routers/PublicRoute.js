@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
+import SnowStorm from 'react-snowstorm'
 
 export const PublicRoute = ({
                                 isAuthenticated,
@@ -11,7 +12,19 @@ export const PublicRoute = ({
     isAuthenticated ? (
       <Redirect to='/dashboard' />
     ) : (
-      <Component {...props}/>
+      <div>
+        <SnowStorm
+          freezeOnBlur={false}
+          followMouse={false}
+          snowColor={'#8bd2ff'}
+          snowStick={false}
+          useTwinkleEffect={false}
+          vMaxY={1}
+          vMaxX={2}
+        />
+        <Component {...props}/>
+
+      </div>
     )
   )} />
 )

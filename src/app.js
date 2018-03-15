@@ -50,12 +50,10 @@ firebase.auth().onAuthStateChanged((user) => {
       if (history.location.pathname === '/') {
         history.push('/dashboard')
       }
-      console.log('%c User Logged in ', 'background:white;color:deepskyblue;' )
     })
   } else {
     store.dispatch(logout())
     renderApp()
     history.push('/')
-    console.log('%c Logout ', 'background:white;color:deepskyblue;' )
   }
 })
